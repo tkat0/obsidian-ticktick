@@ -1,4 +1,4 @@
-import { App, Plugin } from 'obsidian';
+import { App, Notice, Platform, Plugin } from 'obsidian';
 import type { PluginManifest } from 'obsidian';
 
 import { CreateTaskModal } from './modal';
@@ -23,12 +23,17 @@ export default class TickTickPlugin extends Plugin {
       name: 'Create a Task of the current page',
       checkCallback: (checking: boolean) => {
         const file = this.app.workspace.getActiveFile();
+        const isMacOS = Platform.isDesktop && Platform.isMacOS;
 
-        if (file) {
+        if (file && isMacOS) {
           if (!checking) {
             new CreateTaskModal(this.app, file).open();
           }
           return true;
+        }
+
+        if (!isMacOS) {
+          new Notice('Error: Unsupported platform');
         }
 
         return false;
