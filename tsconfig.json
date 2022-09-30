@@ -3,7 +3,7 @@
   "include": ["src/"],
   "exclude": ["node_modules/"],
   "compilerOptions": {
-    "types": ["svelte", "node", "vitest/globals"],
+    "types": ["svelte", "node"],
     "baseUrl": ".",
     "inlineSources": true,
     "module": "ESNext",
