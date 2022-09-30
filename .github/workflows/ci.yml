@@ -7,10 +7,6 @@ on:
     tags:
       - '*'
 
-env:
-  RUST_BACKTRACE: 1
-  CARGO_TERM_COLOR: always
-
 jobs:
   build:
     runs-on: ubuntu-latest
