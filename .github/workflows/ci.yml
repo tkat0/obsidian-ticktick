@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - 'master'
+    tags:
+      - '*'
+
+env:
+  RUST_BACKTRACE: 1
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Lint
+        run: |
+          npm run lint
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            packages/plugin/manifest.json
+            packages/plugin/main.js
+            packages/plugin/styles.css
