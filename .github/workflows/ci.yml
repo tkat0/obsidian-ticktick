@@ -28,6 +28,6 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            packages/plugin/manifest.json
-            packages/plugin/main.js
-            packages/plugin/styles.css
+            ./manifest.json
+            ./main.js
+            ./styles.css
