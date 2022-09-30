@@ -19,8 +19,8 @@ export default class TickTickPlugin extends Plugin {
     this.addSettingTab(new TickTickPluginSettingTab(this.app, this));
 
     this.addCommand({
-      id: 'add-task',
-      name: 'Create Task',
+      id: 'create-task',
+      name: 'Create a Task of the current page',
       checkCallback: (checking: boolean) => {
         const file = this.app.workspace.getActiveFile();
 
@@ -33,6 +33,7 @@ export default class TickTickPlugin extends Plugin {
 
         return false;
       },
+      hotkeys: [{ modifiers: ['Meta'], key: 't' }],
     });
   }
 

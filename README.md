@@ -8,5 +8,25 @@ Currently, this plugin works with [TickTick for Mac](https://ticktick.com/about/
 
 ## Features
 
-- Create task of current page
-  - Obsidian page link is added in the desctiption
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Screenshot</th>
+</tr>
+</thead>
+<tr>
+
+<tr>
+<td>
+<b>Create a task of the current page</b> (default: <kbd>Command</kbd> + <kbd>t</kbd>)
+<ul>
+<li>Obsidian page link is added in the desctiption</li>
+</ul>
+</td>
+<td>
+<img src="./docs/create-new-task.png" width="400px" />
+</td>
+</tr>
+
+</table>
