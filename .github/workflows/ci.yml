@@ -30,4 +30,4 @@ jobs:
           files: |
             ./manifest.json
             ./main.js
-            ./styles.css
+            ./style.css
