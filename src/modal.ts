@@ -1,6 +1,6 @@
 import { App, Modal, TFile } from 'obsidian';
 
-import { generateTikTickCreateTaskContent, generateTikTickCreateTaskURL } from './model';
+import { generateTikTickCreateTaskTitle, generateTikTickCreateTaskURL } from './model';
 import type { Task } from './model';
 import CreateTaskModalComponent from './views/CreateTaskModal.svelte';
 
@@ -10,8 +10,10 @@ export class CreateTaskModal extends Modal {
   constructor(app: App, file: TFile) {
     super(app);
     this.task = {
-      title: file.basename,
-      content: generateTikTickCreateTaskContent(file.path, app.vault.getName()),
+      title: generateTikTickCreateTaskTitle(file.basename, file.path, app.vault.getName()),
+      content: '',
+      list: 'Inbox',
+      tags: 'obsidian',
     };
   }
 
@@ -20,8 +22,8 @@ export class CreateTaskModal extends Modal {
       target: this.contentEl,
       props: {
         task: this.task,
-        onCreateClick: () => {
-          this.onCreate(this.task);
+        onCreateClick: (task: Task) => {
+          this.onCreate(task);
         },
       },
     });
@@ -34,7 +36,7 @@ export class CreateTaskModal extends Modal {
   onCreate(task: Task) {
     // open url
     const url = generateTikTickCreateTaskURL(task);
-    console.debug('create Task:', url);
+    console.debug('create TickTick Task:', url);
     window.open(url);
     this.close();
   }

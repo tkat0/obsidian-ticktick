@@ -2,28 +2,44 @@
   import type { Task } from 'src/model';
 
   export let task: Task;
-  export let onCreateClick: () => void;
+  export let onCreateClick: (task: Task) => void;
 </script>
 
 <h1 class="mb-5 text-2xl">Create a new task to TickTick</h1>
 
 <form>
   <div class="mb-5">
-    <label class="mb-3 block font-medium" for="title">Title</label>
-    <input class="block w-full" type="text" value={task.title} />
+    <label class="mb-1 block font-medium" for="title">Title</label>
+    <p class="mb-3 text-sm ">Default: The link to the current note</p>
+    <input class="block w-full" type="text" bind:value={task.title} />
   </div>
 
   <div class="mb-5">
     <label class="mb-3 block font-medium" for="description">Description</label>
     <textarea
       id="description"
-      rows="10"
+      rows="5"
       class="block w-full px-[14px] py-[5px] focus:border-interactive-accent"
-      value={task.content}
+      bind:value={task.content}
     />
   </div>
 
-  <button class="mod-cta w-full px-[20px] py-[6px]" on:click={onCreateClick}>Create and Open TickTick</button>
+  <div class="mb-5">
+    <label class="mb-3 block font-medium" for="description">List</label>
+    <input class="block w-full" type="text" bind:value={task.list} />
+  </div>
+
+  <div class="mb-5">
+    <label class="mb-3 block font-medium" for="description">Tags</label>
+    <input class="block w-full" type="text" bind:value={task.tags} />
+  </div>
+
+  <button
+    class="mod-cta w-full px-[20px] py-[6px]"
+    on:click={() => {
+      onCreateClick(task);
+    }}>Create and Open TickTick</button
+  >
 </form>
 
 <style global lang="postcss">

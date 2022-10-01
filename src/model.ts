@@ -15,15 +15,17 @@ export const generateTikTickCreateTaskURL = (task: Task): string => {
   if (task.list) {
     url += `&list=${encodeURIComponent(task.list)}`;
   }
+  if (task.tags) {
+    // NOTE: I'm not sure the way to specify multiple tags.
+    //  If I specify a comma-separated string like `a,b`, it creates three tags `a`, `b`, and `a,b`.
+    //  I'm asking TickTick.
+    url += `&tags=${encodeURIComponent(task.tags)}`;
+  }
   return url;
 };
 
-export const generateTikTickCreateTaskContent = (filePath: string, vault: string): string => {
-  let content = '';
+export const generateTikTickCreateTaskTitle = (title: string, filePath: string, vault: string): string => {
+  const url = `obsidian://open?vault=${encodeURIComponent(vault)}&file=${encodeURIComponent(filePath)}`;
 
-  const url = `obsidian://open?vault=${vault}&file=${filePath}`;
-
-  content += `[obsidian file](${encodeURIComponent(url)})`;
-  content += '\n\n';
-  return content;
+  return `[${title}](${url})`;
 };
