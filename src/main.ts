@@ -28,7 +28,7 @@ export default class TickTickPlugin extends Plugin {
 
         if (file && isMacOS && view) {
           if (!checking) {
-            new CreateTaskModal(this.app, view, file).open();
+            new CreateTaskModal(this.app, view, file, this.settings).open();
           }
           return true;
         }

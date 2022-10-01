@@ -1,11 +1,16 @@
-import { App, PluginSettingTab } from 'obsidian';
+import { App, PluginSettingTab, Setting } from 'obsidian';
 
 import type TickTickPlugin from './main';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface TickTickPluginSettings {}
+export interface TickTickPluginSettings {
+  defaultTags: string;
+  defaultList: string;
+}
 
-export const DEFAULT_SETTINGS: TickTickPluginSettings = {};
+export const DEFAULT_SETTINGS: TickTickPluginSettings = {
+  defaultTags: '',
+  defaultList: 'Inbox',
+};
 
 export class TickTickPluginSettingTab extends PluginSettingTab {
   plugin: TickTickPlugin;
@@ -20,5 +25,27 @@ export class TickTickPluginSettingTab extends PluginSettingTab {
 
     containerEl.empty();
     containerEl.createEl('h2', { text: 'TickTick Settings' });
+
+    containerEl.createEl('h3', { text: 'Create a new task' });
+
+    new Setting(containerEl)
+      .setName('Default Tags')
+      .setDesc('The default tags for a new task')
+      .addText((toggle) => {
+        toggle.setValue(this.plugin.settings.defaultTags).onChange(async (value) => {
+          this.plugin.settings.defaultTags = value;
+          await this.plugin.saveSettings();
+        });
+      });
+
+    new Setting(containerEl)
+      .setName('Default List')
+      .setDesc('The default list for a new task')
+      .addText((toggle) => {
+        toggle.setValue(this.plugin.settings.defaultList).onChange(async (value) => {
+          this.plugin.settings.defaultList = value;
+          await this.plugin.saveSettings();
+        });
+      });
   }
 }

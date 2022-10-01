@@ -31,12 +31,13 @@
   </div>
 
   <div class="mb-5">
-    <label class="mb-3 block font-medium" for="description">Tags</label>
+    <label class="mb-1 block font-medium" for="description">Tags</label>
+    <p class="mb-3 text-sm ">The prefix `#` is not necessary (e.g. "obsidian")</p>
     <input class="block w-full" type="text" bind:value={task.tags} />
   </div>
 
   <button
-    class="mod-cta w-full px-[20px] py-[6px]"
+    class="mod-cta mt-3 w-full px-[20px] py-[6px]"
     on:click={() => {
       onCreateClick(task);
     }}>Create and Open TickTick</button
