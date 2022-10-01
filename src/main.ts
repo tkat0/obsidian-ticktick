@@ -26,15 +26,15 @@ export default class TickTickPlugin extends Plugin {
         const view = this.app.workspace.getActiveViewOfType(MarkdownView);
         const isMacOS = Platform.isDesktop && Platform.isMacOS;
 
-        if (file && isMacOS && view) {
+        if (file && view) {
           if (!checking) {
+            if (!isMacOS) {
+              new Notice('Error: Unsupported platform');
+              return;
+            }
             new CreateTaskModal(this.app, view, file, this.settings).open();
           }
           return true;
-        }
-
-        if (!isMacOS) {
-          new Notice('Error: Unsupported platform');
         }
 
         return false;
