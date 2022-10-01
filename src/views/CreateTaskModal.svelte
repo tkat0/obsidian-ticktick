@@ -15,10 +15,11 @@
   </div>
 
   <div class="mb-5">
-    <label class="mb-3 block font-medium" for="description">Description</label>
+    <label class="mb-1 block font-medium" for="description">Description</label>
+    <p class="mb-3 text-sm ">Default: The selected strings</p>
     <textarea
       id="description"
-      rows="5"
+      rows="10"
       class="block w-full px-[14px] py-[5px] focus:border-interactive-accent"
       bind:value={task.content}
     />

@@ -1,4 +1,4 @@
-import { App, Notice, Platform, Plugin } from 'obsidian';
+import { App, MarkdownView, Notice, Platform, Plugin } from 'obsidian';
 import type { PluginManifest } from 'obsidian';
 
 import { CreateTaskModal } from './modal';
@@ -23,11 +23,12 @@ export default class TickTickPlugin extends Plugin {
       name: 'Create a Task of the current page',
       checkCallback: (checking: boolean) => {
         const file = this.app.workspace.getActiveFile();
+        const view = this.app.workspace.getActiveViewOfType(MarkdownView);
         const isMacOS = Platform.isDesktop && Platform.isMacOS;
 
-        if (file && isMacOS) {
+        if (file && isMacOS && view) {
           if (!checking) {
-            new CreateTaskModal(this.app, file).open();
+            new CreateTaskModal(this.app, view, file).open();
           }
           return true;
         }
