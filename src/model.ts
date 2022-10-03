@@ -21,6 +21,10 @@ export const generateTikTickCreateTaskURL = (task: Task): string => {
     //  I'm asking TickTick.
     url += `&tags=${encodeURIComponent(task.tags)}`;
   }
+
+  // TODO: doesn't work
+  url += `&x-success=${encodeURIComponent(`obsidian://ticktick`)}`;
+
   return url;
 };
 

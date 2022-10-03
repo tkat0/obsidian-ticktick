@@ -41,6 +41,12 @@ export default class TickTickPlugin extends Plugin {
       },
       hotkeys: [{ modifiers: ['Meta'], key: 't' }],
     });
+
+    this.registerObsidianProtocolHandler('ticktick', (params) => {
+      // TODO: It doesn't seems to be called from ticktick for macOS. only for iOS?
+      // `obsidian://ticktick?id=value` would generate `{"action": "ticktick", "id": "value"}`.
+      console.debug('callback', params);
+    });
   }
 
   onunload() {}
