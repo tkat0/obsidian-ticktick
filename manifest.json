@@ -1,7 +1,7 @@
 {
   "id": "obsidian-ticktick",
   "name": "TickTick",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "minAppVersion": "0.15.9",
   "description": "TickTick plugin for Obsidian",
   "author": "tkat0",

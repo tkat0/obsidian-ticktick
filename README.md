@@ -31,6 +31,29 @@ Currently, this plugin works with [TickTick for Mac](https://ticktick.com/about/
 
 </table>
 
+## How to use
+
+This plugin has not been released officially yet.
+
+### BRAT
+
+If you use BRAT (Beta Reviewers Auto-update Tester), you can try the plugin to specify `tkat0/obsidian-ticktick`.
+
+See [TfTHacker/obsidian42-brat: BRAT - Beta Reviewer's Auto-update Tool for Obsidian. Part of the Obsidian42 family of plugins.](https://github.com/TfTHacker/obsidian42-brat) for details
+
+### Copy manually
+
+- Download `main.js`, `manifest.json` and `styles.css` from [Releases](https://github.com/tkat0/obsidian-ticktick/releases)
+- Copy them to your vault `VaultFolder/.obsidian/plugins/obsidian-ticktick`
+- Enable this plugin in the Obsidian configuration.
+
+### Build manually
+
+- Download this repository
+- Run `npm install && npm run build`
+- Copy over `./packages/plugin/{main.js, manifest.json, styles.css}` to your vault `VaultFolder/.obsidian/plugins/obsidian-ticktick`
+- Enable this plugin in the Obsidian configuration.
+
 ## Feature Possibility
 
 - Support Windows
