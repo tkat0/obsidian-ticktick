@@ -1,8 +1,16 @@
 <script lang="ts">
+  import { Notice } from 'obsidian';
   import type { Task } from 'src/model';
+
+  import Icon from './Icon.svelte';
 
   export let task: Task;
   export let onCreateClick: (task: Task) => void;
+
+  function onCopyClick() {
+    navigator.clipboard.writeText(task.title);
+    new Notice('Copied task title to clipboard');
+  }
 </script>
 
 <h1 class="mb-5 text-2xl">Create a new task to TickTick</h1>
@@ -11,7 +19,14 @@
   <div class="mb-5">
     <label class="mb-1 block font-medium" for="title">Title</label>
     <p class="mb-3 text-sm ">Default: The link to the current note</p>
-    <input class="block w-full" type="text" bind:value={task.title} />
+    <div class="flex items-center">
+      <input class="grow" type="text" bind:value={task.title} />
+      <div class="p-1">
+        <button type="button" class="p-1" on:click={onCopyClick}>
+          <Icon iconId="ClipboardCopy" size={16} />
+        </button>
+      </div>
+    </div>
   </div>
 
   <div class="mb-5">
@@ -37,6 +52,7 @@
   </div>
 
   <button
+    type="button"
     class="mod-cta mt-3 w-full px-[20px] py-[6px]"
     on:click={() => {
       onCreateClick(task);
