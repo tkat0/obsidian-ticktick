@@ -28,7 +28,7 @@
     "esbuild-svelte": "0.7.1",
     "eslint": "8.24.0",
     "eslint-plugin-svelte3": "4.0.0",
-    "husky": "8.0.1",
+    "husky": "8.0.3",
     "obsidian": "0.16.0",
     "postcss": "8.4.17",
     "prettier": "2.7.1",
