@@ -21,7 +21,7 @@
     "@tsconfig/svelte": "3.0.0",
     "@typescript-eslint/eslint-plugin": "5.39.0",
     "@typescript-eslint/parser": "5.39.0",
-    "autoprefixer": "10.4.8",
+    "autoprefixer": "10.4.20",
     "babel-loader": "8.2.5",
     "builtin-modules": "3.3.0",
     "esbuild": "0.15.10",
