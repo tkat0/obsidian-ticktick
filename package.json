@@ -25,7 +25,7 @@
     "babel-loader": "8.2.5",
     "builtin-modules": "3.3.0",
     "esbuild": "0.15.10",
-    "esbuild-svelte": "0.7.1",
+    "esbuild-svelte": "0.9.5",
     "eslint": "8.24.0",
     "eslint-plugin-svelte3": "4.0.0",
     "husky": "8.0.1",
